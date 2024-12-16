@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In / Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-image: url('./Premium\ Vector\ _\ Born\ to\ be\ a\ gamer\ Gaming\ TShirt\ Design.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        h1 {
+            margin-bottom: 30px;
+            font-size: 2.5em; 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        form {
+            background: rgba(0, 0, 0, 0.7); 
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            margin: 10px;
+            width: 300px;
+        }
+        input {
+            width: 93%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            width: 38%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .toggle-link {
+            text-align: center;
+            margin-top: 10px;
+            cursor: pointer;
+            color: #007BFF;
+        }
+        .message {
+            margin-bottom: 20px;
+            color: red;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1><a style="color: red;">NextGen Gaming Zone</a></h1>
+
+    <div id="signInForm">
+        <h2><a style="color: red;">Sign In</a></h2>
+        <div class="message" id="signInMessage"></div>
+        <form onsubmit="signIn(event)">
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Sign In</button>
+        </form>
+        <div class="toggle-link" onclick="toggleForms()"><a style="color: red"><b>Don't have an account? Sign Up</b></a></div>
+    </div>
+
+    <div id="signUpForm" style="display: none;">
+        <h2><a style="color: red;">Sign up</a></h2>
+        <div class="message" id="signUpMessage"></div>
+        <form onsubmit="signUp(event)">
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Verify Password" required>
+            <input type="email" placeholder="Email" required>
+            <button type="submit">Create Account</button>
+        </form>
+        <div class="toggle-link" onclick="toggleForms()"><a style="color: red;"><b>Already have an account? Sign In    </b></a></div>
+    </div>
+
+    <script>
+        function toggleForms() {
+            const signInForm = document.getElementById('signInForm');
+            const signUpForm = document.getElementById('signUpForm');
+            if (signInForm.style.display === 'none') {
+                signInForm.style.display = 'block';
+                signUpForm.style.display = 'none';
+            } else {
+                signInForm.style.display = 'none';
+                signUpForm.style.display = 'block';
+            }
+            clearMessages();
+        }
+
+        function signIn(event) {
+            event.preventDefault();
+            document.getElementById('signInMessage').innerText = 'SIGN IN COMPLETE';
+        }
+
+        function signUp(event) {
+            event.preventDefault();
+            document.getElementById('signUpMessage').innerText = 'ACCOUNT HAS BEEN SUCCESSFULLY CREATED.';
+        }
+
+        function clearMessages() {
+            document.getElementById('signInMessage').innerText = '';
+            document.getElementById('signUpMessage').innerText = '';
+        }
+    </script>
+
+</body>
+</html>
